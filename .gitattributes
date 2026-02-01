@@ -1,0 +1,41 @@
+* text=auto
+
+*.js text
+*.ts text
+*.tsx text
+*.jsx text
+*.json text
+*.css text
+*.scss text
+*.html text
+*.md text
+
+*.sh text eol=lf
+.editorconfig text eol=lf
+.gitattributes text eol=lf
+.gitignore text eol=lf
+
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.mov binary
+*.mp4 binary
+*.mp3 binary
+*.zip binary
+*.ttf binary
+*.woff binary
+*.woff2 binary
+
+.github/ export-ignore
+.vscode/ export-ignore
+.idea/ export-ignore
+.DS_Store export-ignore
+node_modules/ export-ignore
+dist/ export-ignore
