@@ -1,7 +1,7 @@
 {
-  "name": "module-system",
+  "name": "path-module",
   "version": "1.0.0",
-  "description": "Node.js Module System Exploration",
+  "description": "Node.js Path Module Exploration",
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
