@@ -11,7 +11,7 @@ const cookieOptions = {
 
 // Render Register Page
 router.get("/register", (_req, res) => {
-  res.render("register");
+  return res.render("register");
 });
 
 // Register User
@@ -24,15 +24,15 @@ router.post("/register", async (req, res) => {
       return res.render("register", { error: "User already exists" });
 
     await User.create({ username, email, password });
-    res.redirect("/login");
-  } catch (error) {
-    res.render("register", { error: "Registration failed" });
+    return res.redirect("/login");
+  } catch (_error) {
+    return res.render("register", { error: "Registration failed" });
   }
 });
 
 // Render Login Page
 router.get("/login", (_req, res) => {
-  res.render("login");
+  return res.render("login");
 });
 
 // Login User
@@ -51,12 +51,12 @@ router.post("/login", async (req, res) => {
     user.refreshToken = refreshToken;
     await user.save({ validateBeforeSave: false });
 
-    res
+    return res
       .cookie("accessToken", accessToken, cookieOptions)
       .cookie("refreshToken", refreshToken, cookieOptions)
       .redirect("/");
-  } catch (error) {
-    res.render("login", { error: "Login failed" });
+  } catch (_error) {
+    return res.render("login", { error: "Login failed" });
   }
 });
 
@@ -64,7 +64,7 @@ router.post("/login", async (req, res) => {
 router.post("/logout", async (_req, res) => {
   res.clearCookie("accessToken", cookieOptions);
   res.clearCookie("refreshToken", cookieOptions);
-  res.redirect("/login");
+  return res.redirect("/login");
 });
 
 export default router;

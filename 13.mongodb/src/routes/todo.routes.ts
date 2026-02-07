@@ -9,7 +9,7 @@ router.get("/", verifyJWT, async (req: AuthRequest, res) => {
   const todos = await Todo.find({ user: req.user?._id }).sort({
     createdAt: -1,
   });
-  res.render("index", { todos, user: req.user });
+  return res.render("index", { todos, user: req.user });
 });
 
 // Add Todo
@@ -18,7 +18,7 @@ router.post("/add", verifyJWT, async (req: AuthRequest, res) => {
   if (task) {
     await Todo.create({ user: req.user?._id, task });
   }
-  res.redirect("/");
+  return res.redirect("/");
 });
 
 // Toggle Todo
@@ -28,13 +28,13 @@ router.post("/toggle/:id", verifyJWT, async (req, res) => {
     todo.completed = !todo.completed;
     await todo.save();
   }
-  res.redirect("/");
+  return res.redirect("/");
 });
 
 // Delete Todo
 router.post("/delete/:id", verifyJWT, async (req, res) => {
   await Todo.findByIdAndDelete(req.params.id);
-  res.redirect("/");
+  return res.redirect("/");
 });
 
 export default router;
