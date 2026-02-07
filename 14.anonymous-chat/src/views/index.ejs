@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ANON CHAT</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            :root {
+                --bg: #0a0a0a;
+                --fg: #e0e0e0;
+                --accent: #00ff41;
+                --gray: #333;
+            }
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                background-color: var(--bg);
+                color: var(--fg);
+                font-family: "JetBrains Mono", monospace;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                overflow: hidden;
+            }
+            .container {
+                width: 100%;
+                max-width: 400px;
+                padding: 2rem;
+                border: 1px solid var(--gray);
+                background: #111;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            }
+            h1 {
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
+                text-align: center;
+                letter-spacing: -1px;
+            }
+            .form-group {
+                margin-bottom: 1.5rem;
+            }
+            input {
+                width: 100%;
+                padding: 0.8rem;
+                background: transparent;
+                border: 1px solid var(--gray);
+                color: var(--fg);
+                font-family: inherit;
+                outline: none;
+                transition: border-color 0.3s;
+            }
+            input:focus {
+                border-color: var(--accent);
+            }
+            button {
+                width: 100%;
+                padding: 1rem;
+                background: var(--gray);
+                color: var(--fg);
+                border: none;
+                font-family: inherit;
+                cursor: pointer;
+                text-transform: uppercase;
+                font-weight: bold;
+                transition: all 0.3s;
+            }
+            button:hover {
+                background: var(--accent);
+                color: #000;
+            }
+            .divider {
+                text-align: center;
+                margin: 1.5rem 0;
+                color: #666;
+                font-size: 0.8rem;
+            }
+            .footer {
+                margin-top: 2rem;
+                text-align: center;
+                font-size: 0.7rem;
+                color: #555;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>ANON_CHAT::VOID</h1>
+
+            <form action="/create" method="POST">
+                <button type="submit">CREATE NEW SESSION</button>
+            </form>
+
+            <div class="divider">OR</div>
+
+            <form action="/join" method="GET">
+                <div class="form-group">
+                    <input
+                        type="text"
+                        name="code"
+                        placeholder="ENTER SESSION CODE"
+                        required
+                    />
+                </div>
+                <button type="submit">JOIN SESSION</button>
+            </form>
+
+            <div class="footer">
+                SESSIONS LAST 5 MIN MAX.<br />
+                NO LOGS. NO TRACE.
+            </div>
+        </div>
+    </body>
+</html>
